@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package minion.v1;
+
+service Minion {
+  rpc Execute(ExecuteMessage.Req) returns (ExecuteMessage.Resp);
+  rpc Authenticate(AuthMessage.Req) returns (AuthMessage.Resp);
+
+}
+
+message AuthMessage {
+  message Req {
+
+  }
+
+  message Resp {
+
+  }
+}
+
+message ExecuteMessage {
+  message Req {
+    string cmd = 1;
+    string sudo = 2;
+    string args = 3;
+  }
+  message Resp {
+    bytes data = 1;
+  }
+}
+
+//service Echo {
+//  rpc echo(ExecuteMessage.Req) returns (ExecuteMessage.Resp) {}
+//}
